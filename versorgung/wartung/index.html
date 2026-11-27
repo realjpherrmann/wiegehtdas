@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex,noai,noimageai"><meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet,noimageindex,noai,noimageai">
+<meta name="referrer" content="no-referrer">
+<title>wiegehtdas</title>
+<style>
+:root{color-scheme:light dark;
+ --bg:light-dark(#f6f5f2,#16181a);--karte:light-dark(#ffffff,#1f2225);--text:light-dark(#1c1f22,#e8e6e1);
+ --leise:light-dark(#5d6267,#a3a8ad);--linie:light-dark(#dcd9d2,#33373b);--akzent:light-dark(#1f5f5b,#7cc4bd);
+ --akzent-bg:light-dark(#e6f0ee,#1d302e);--warn:light-dark(#8a2a1c,#f09a87);--warn-bg:light-dark(#fbeae6,#3a211c);
+ --gut:light-dark(#2f6b2f,#8fd18f)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+main{max-width:44rem;margin:0 auto;padding:24px 16px 48px}
+header{margin-bottom:20px}
+.ort{color:var(--leise);font-size:14px;margin:0 0 4px}
+h1{font-size:28px;line-height:1.2;margin:0 0 6px;letter-spacing:-.01em}
+.unter{color:var(--leise);margin:0}
+h2{font-size:19px;margin:32px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--linie)}
+h3{font-size:16px;margin:18px 0 6px}
+p{margin:0 0 10px}
+a{color:var(--akzent)}
+.blick{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0}
+.kachel{background:var(--karte);border:1px solid var(--linie);border-radius:8px;padding:12px 14px}
+.kachel .k{font-size:13px;color:var(--leise);margin:0 0 2px}
+.kachel .w{font-size:17px;font-weight:600;margin:0}
+.kachel .z{font-size:13px;color:var(--leise);margin:2px 0 0}
+.kachel.warn{border-color:var(--warn);background:var(--warn-bg)}
+.kachel.warn .w{color:var(--warn)}
+details{background:var(--karte);border:1px solid var(--linie);border-radius:8px;margin:0 0 8px}
+details[open]{padding-bottom:6px}
+summary{cursor:pointer;padding:12px 14px;font-weight:600;list-style:none;position:relative;padding-right:36px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:14px;top:10px;font-size:20px;color:var(--leise);font-weight:400}
+details[open] summary::after{content:"–"}
+details>:not(summary){margin-left:14px;margin-right:14px}
+details.warn{border-color:var(--warn)}
+details.warn summary{color:var(--warn)}
+ol,ul{margin:0 0 10px;padding-left:22px}
+li{margin:0 0 4px}
+.kasten{background:var(--akzent-bg);border-left:3px solid var(--akzent);padding:10px 14px;border-radius:0 6px 6px 0;margin:0 0 12px}
+.kasten.warn{background:var(--warn-bg);border-left-color:var(--warn)}
+table{width:100%;border-collapse:collapse;background:var(--karte);border:1px solid var(--linie);border-radius:8px;overflow:hidden;margin:0 0 12px;font-size:15px}
+th,td{text-align:left;vertical-align:top;padding:8px 12px;border-bottom:1px solid var(--linie)}
+tr:last-child>*{border-bottom:0}
+th{font-weight:600;width:34%;color:var(--leise)}
+thead th{color:var(--text);width:auto;background:var(--bg)}
+.tab-wrap{overflow-x:auto}
+figure{margin:0 0 12px}
+.bilder{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin:0 0 12px}
+.bilder a{display:block;border:1px solid var(--linie);border-radius:6px;overflow:hidden;background:var(--karte);text-decoration:none;color:var(--leise);font-size:12px}
+.bilder img{display:block;width:100%;height:110px;object-fit:cover}
+.bilder span{display:block;padding:4px 6px}
+.balken{display:flex;align-items:flex-end;gap:3px;height:120px;padding:8px 10px 0;background:var(--karte);border:1px solid var(--linie);border-radius:8px 8px 0 0;border-bottom:0}
+.balken div{flex:1;background:var(--akzent);border-radius:2px 2px 0 0;min-height:2px}
+.achse{display:flex;justify-content:space-between;font-size:12px;color:var(--leise);background:var(--karte);border:1px solid var(--linie);border-top:1px solid var(--linie);border-radius:0 0 8px 8px;padding:4px 10px;margin:0 0 8px}
+.leise{color:var(--leise);font-size:14px}
+.weiter{display:block;background:var(--karte);border:1px solid var(--akzent);border-radius:8px;padding:12px 14px;text-decoration:none;font-weight:600;margin:16px 0 0}
+.weiter span{display:block;font-weight:400;font-size:14px;color:var(--leise)}
+@media (max-width:560px){table.kopf thead{display:none}table.kopf tr{display:block;border-bottom:1px solid var(--linie);padding:6px 0}table.kopf tr:last-child{border-bottom:0}table.kopf td{display:block;border:0;padding:2px 12px}table.kopf td::before{content:attr(data-k);display:block;font-size:12px;color:var(--leise)}table.kopf td:first-child::before{display:none}table.kopf td:first-child{font-weight:600}}
+form.eintrag{background:var(--karte);border:1px solid var(--linie);border-radius:8px;padding:14px;margin:0 0 12px}
+.feld{margin:0 0 12px}
+.feld label{display:block;font-size:14px;font-weight:600;margin:0 0 4px}
+.feld label small{font-weight:400;color:var(--leise)}
+.feld input,.feld select,.feld textarea{width:100%;font:inherit;font-size:16px;color:var(--text);background:var(--bg);border:1px solid var(--linie);border-radius:6px;padding:9px 10px}
+.feld textarea{min-height:84px;resize:vertical}
+.feld input:focus,.feld select:focus,.feld textarea:focus{outline:2px solid var(--akzent);outline-offset:1px;border-color:var(--akzent)}
+.zwei{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}
+@media (max-width:420px){.zwei{grid-template-columns:1fr}}
+button.haupt{display:block;width:100%;font:inherit;font-weight:600;font-size:16px;color:light-dark(#fff,#0f1f1e);background:var(--akzent);border:0;border-radius:8px;padding:12px 14px;cursor:pointer}
+button.haupt:disabled{opacity:.6;cursor:default}
+.rueckmeldung{margin:10px 0 0;font-size:15px}
+.rueckmeldung.gut{color:var(--gut)}
+.rueckmeldung.warn{color:var(--warn)}
+footer{margin-top:40px;padding-top:12px;border-top:1px solid var(--linie);color:var(--leise);font-size:13px}
+footer p{margin:0 0 4px}
+@media print{body{background:#fff;color:#000}main{max-width:none;padding:0}details{break-inside:avoid}details>:not(summary){display:block}summary::after{content:""}a.weiter{display:none}}
+</style>
+</head>
+<body>
+<main id="seite"><p class="leise" id="meldung">Seite wird geöffnet</p></main>
+<noscript><main><p>Diese Seite braucht JavaScript.</p></main></noscript>
+<script>
+(async () => {
+  const P = {"s":"8GYOiPZhHRzfVjs/oKpjUg==","i":"HT/tassCGrxDx565","n":150000};
+  const main = document.getElementById('seite');
+  const melde = (titel, text) => { main.innerHTML = '<h1 style="font-size:22px;margin-top:24px"></h1><p></p>'; main.querySelector('h1').textContent = titel; main.querySelector('p').textContent = text; };
+  const k = new URLSearchParams(location.hash.slice(1)).get('k');
+  if (!k) return melde('Bitte QR-Code scannen', 'Diese Seite lässt sich nur über den QR-Code am Gerät öffnen.');
+  if (!window.crypto || !crypto.subtle) return melde('Browser zu alt', 'Bitte die Seite mit einem aktuellen Browser öffnen.');
+  const b64 = (t) => Uint8Array.from(atob(t), (c) => c.charCodeAt(0));
+  let x;
+  try {
+    const roh = await crypto.subtle.importKey('raw', new TextEncoder().encode(k), 'PBKDF2', false, ['deriveKey']);
+    const sch = await crypto.subtle.deriveKey({ name: 'PBKDF2', salt: b64(P.s), iterations: P.n, hash: 'SHA-256' }, roh, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+    const res = await fetch('inhalt.bin', { cache: 'no-cache' });
+    if (!res.ok) throw new Error('fehlt');
+    const klar = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64(P.i) }, sch, await res.arrayBuffer());
+    x = JSON.parse(new TextDecoder().decode(klar));
+  } catch (e) {
+    return melde('Schlüssel passt nicht', 'Bitte den QR-Code am Gerät erneut scannen.');
+  }
+  let html = x.html;
+  for (const [name, daten] of Object.entries(x.bilder || {})) {
+    const url = URL.createObjectURL(new Blob([b64(daten)], { type: 'image/jpeg' }));
+    html = html.split('wgd-bild:' + name).join(url);
+  }
+  document.title = x.titel;
+  main.innerHTML = html;
+  for (const a of main.querySelectorAll('a[data-schluessel]')) a.href = a.getAttribute('href') + location.hash;
+  // Formulare: Ziel steht im verschlüsselten Inhalt (data-senden); gesendet wird als einfaches Formular (kein CORS nötig)
+  for (const f of main.querySelectorAll('form[data-senden]')) {
+    for (const d of f.querySelectorAll('input[data-heute]')) if (!d.value) d.value = new Date().toLocaleDateString('sv-SE');
+    const meldung = f.querySelector('.rueckmeldung');
+    f.addEventListener('submit', async (ev) => {
+      ev.preventDefault();
+      if (!f.reportValidity()) return;
+      const knopf = f.querySelector('button'); knopf.disabled = true; knopf.textContent = 'Wird gesendet';
+      try {
+        await fetch(f.dataset.senden, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(f)) });
+        f.querySelectorAll('input,select,textarea').forEach((x) => { if (x.type !== 'hidden') x.disabled = true; });
+        knopf.textContent = 'Gesendet';
+        meldung.className = 'rueckmeldung gut';
+        meldung.textContent = 'Danke! Der Eintrag ist angekommen und erscheint nach Freigabe in der Wartungshistorie.';
+      } catch (e) {
+        knopf.disabled = false; knopf.textContent = 'Erneut senden';
+        meldung.className = 'rueckmeldung warn';
+        meldung.textContent = 'Senden hat nicht geklappt (keine Verbindung?). Bitte später erneut versuchen.';
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>
